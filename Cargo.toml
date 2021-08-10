@@ -1,0 +1,20 @@
+[package]
+name = "sana-tee"
+version = "0.0.1"
+authors = ["ethsana <gitsana@ethsana.org>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = "https://github.com/ethsana/sana-tee"
+repository = "https://github.com/ethsana/sana-tee"
+description = "SANA TEE support"
+readme = "README.md"
+keywords = ["amd", "sev"]
+categories = ["os", "os::linux-apis", "parsing", "cryptography", "hardware-support"]
+exclude = [ ".gitignore", ".github/*" ]
+
+[lib]
+name = "sana_tee"
+crate-type = ["staticlib"]
+
+[dependencies]
+sev = { version = "0.1", features = ["openssl"] }
