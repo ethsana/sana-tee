@@ -21,10 +21,10 @@ func Output() string {
 	}
 
 	buffer := bytes.NewBufferString("")
-	buffer.WriteString(`Platform: AMD`)
+	buffer.WriteString("Platform: AMD\n")
 	buffer.WriteString(sev.Output())
 
-	buffer.WriteString(`Platform: Intel`)
+	buffer.WriteString("Platform: Intel\n")
 	buffer.WriteString(sgx.Output())
 	return buffer.String()
 }
