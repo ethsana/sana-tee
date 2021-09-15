@@ -24,7 +24,14 @@ func NewDevice(byts []byte) *Device {
 		return nil
 	}
 	platform := Platform(binary.BigEndian.Uint32(byts[:4]))
-	return &Device{Id: string(byts[4:]), Platform: platform}
+	switch platform {
+	case AMD:
+		return &Device{Id: string(byts[4:132]), Platform: AMD}
+	case Intel:
+		return &Device{Id: ``, Platform: Intel}
+	default:
+		return &Device{Id: ``, Platform: Unknown}
+	}
 }
 
 func (d *Device) Bytes() []byte {
